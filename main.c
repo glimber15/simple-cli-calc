@@ -9,9 +9,11 @@ bool parseToNum(const char *str, long *result);
 int main(int argc, char const *argv[])
 {
 	long a, b;
-	if (!parseToNum(argv[2], &a) || !parseToNum(argv[3], &b)) {
-		printHelp();
-		return 1;
+	if (argc > 2) {
+			if (!parseToNum(argv[2], &a) || !parseToNum(argv[3], &b)) {
+			printHelp();
+			return 1;
+		}
 	}
 
 	if (argc < 2) {
