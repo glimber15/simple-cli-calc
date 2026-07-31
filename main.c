@@ -6,7 +6,7 @@
 
 int main(int argc, char const *argv[])
 {
-	long a, b;
+	float a, b;
 
 	if (argc < 2) {
 		printHelp();
@@ -24,13 +24,13 @@ int main(int argc, char const *argv[])
 	}
 
 	if (strcmp(argv[1], "add") == 0) {
-		printf("[ %.2f ]\n", add(argc, &a, &b));
+		printf("[ %.2f ]\n", add(argc, argv));
 	}
 	else if (strcmp(argv[1], "sub") == 0) {
-		printf("[ %.2f ]\n", substract(argc, &a, &b));
+		printf("[ %.2f ]\n", substract(argc, argv));
 	}
 	else if (strcmp(argv[1], "mul") == 0) {
-		printf("[ %.2f ]\n", multiply(argc, &a, &b));
+		printf("[ %.2f ]\n", multiply(argc, argv));
 	}
 	else if (strcmp(argv[1], "div") == 0) {
 		printf("[ %.2f ]\n", divide(argc, &a, &b));

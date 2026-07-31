@@ -4,10 +4,10 @@
 #include <stdbool.h>
 
 void printHelp(void);
-bool parseToNum(const char *str, long *result);
-float add(int argv, long *a, long *b);
-float substract(int argv, long *a, long *b);
-float multiply(int argv, long *a, long *b);
-float divide(int argv, long *a, long *b);
+bool parseToNum(const char  *str, float *result);
+float add(int argc, char const *argv[]);
+float substract(int argc, char const *argv[]);
+float multiply(int argc, char const *argv[]);
+float divide(int argc, float *a, float *b);
 
 #endif
