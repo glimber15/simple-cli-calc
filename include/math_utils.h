@@ -1,7 +1,9 @@
-#ifndef FUNCTIONS_H
-#define FUNCTIONS_H
+#ifndef MATH_UTILS_H
+#define MATH_UTILS_H
 
-void printHelp();
+#include <stdbool.h>
+
+void printHelp(void);
 bool parseToNum(const char *str, long *result);
 float add(int argv, long *a, long *b);
 float substract(int argv, long *a, long *b);

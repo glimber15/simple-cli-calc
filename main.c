@@ -2,28 +2,22 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "functions.h"
+#include "math_utils.h"
 
 int main(int argc, char const *argv[])
 {
 	long a, b;
+
+	if (argc < 2) {
+		printHelp();
+		return 1;
+	}
+	
 	if (argc > 2) {
 			if (!parseToNum(argv[2], &a) || !parseToNum(argv[3], &b)) {
 			printHelp();
 			return 1;
 		}
-	}
-
-	if (argc < 2) {
-		printHelp();
-	}
-	else if (strcmp(argv[1], "mul") == 0) {
-		if (argc < 4) {
-			printHelp();
-			return 1;
-		}
-		int result = a * b;
-		printf("[ %d ]\n", result);
 	}
 	else if (strcmp(argv[1], "div") == 0) {
 		return 1;
