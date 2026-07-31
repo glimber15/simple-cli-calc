@@ -1,5 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Wpedantic -Iinclude
+PREFIX = $(HOME)/.local
+BINDIR = $(PREFIX)/bin
 
 SRC = main.c src/*.c
 OBJ = $(SRC:.c=.o)
@@ -19,5 +21,12 @@ clean:
 
 run: $(TARGET)
 	./$(TARGET)
+
+install: calc
+	mkdir -p $(BINDIR)
+	cp calc $(BINDIR)
+
+uninstall:
+	rm -f $(BINDIR)/calc
 
 .PHONY: all clean run
