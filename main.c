@@ -1,10 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 
-void printHelp();
-bool parseToNum(const char *str, long *result);
+#include "functions.h"
 
 int main(int argc, char const *argv[])
 {
@@ -18,24 +16,6 @@ int main(int argc, char const *argv[])
 
 	if (argc < 2) {
 		printHelp();
-		return 1;
-	}
-
-	if (strcmp(argv[1], "add") == 0) {
-		if (argc < 4) {
-			printHelp();
-			return 1;
-		}
-		int result = a + b;
-		printf("[ %d ]\n", result);
-	}
-	else if (strcmp(argv[1], "sub") == 0) {
-		if (argc < 4) {
-			printHelp();
-			return 1;
-		}
-		int result = a - b;
-		printf("[ %d ]\n", result);
 	}
 	else if (strcmp(argv[1], "mul") == 0) {
 		if (argc < 4) {
@@ -46,16 +26,20 @@ int main(int argc, char const *argv[])
 		printf("[ %d ]\n", result);
 	}
 	else if (strcmp(argv[1], "div") == 0) {
-		if (argc < 4) {
-			printHelp();
-			return 1;
-		}
-		if (b == 0) {
-			printf("For some reason, you can't divide by zero!\n");
-			return 1;
-		}
-		int result = a / b;
-		printf("[ %d ]\n", result);
+		return 1;
+	}
+
+	if (strcmp(argv[1], "add") == 0) {
+		printf("[ %.2f ]\n", add(argc, &a, &b));
+	}
+	else if (strcmp(argv[1], "sub") == 0) {
+		printf("[ %.2f ]\n", substract(argc, &a, &b));
+	}
+	else if (strcmp(argv[1], "mul") == 0) {
+		printf("[ %.2f ]\n", multiply(argc, &a, &b));
+	}
+	else if (strcmp(argv[1], "div") == 0) {
+		printf("[ %.2f ]\n", divide(argc, &a, &b));
 	}
 	else if (strcmp(argv[1], "help") == 0) {
 		printf(
@@ -72,16 +56,4 @@ int main(int argc, char const *argv[])
 	}
 
 	return 0;
-}
-
-void printHelp() {
-	printf("Usage: calc <operation> <num1> <num2>\n"
-			"'calc help' for more information"
-		);	
-}
-
-bool parseToNum(const char *str, long *result) {
-	char *end;
-	*result = strtol(str, &end, 10);
-	return *end == '\0';
 }
